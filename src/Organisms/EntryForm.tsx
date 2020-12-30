@@ -1,4 +1,4 @@
-import React, { FormEvent, KeyboardEvent, useState } from "react";
+import { FormEvent, KeyboardEvent, useState } from "react";
 import { FC } from "react";
 import { Input } from "semantic-ui-react";
 

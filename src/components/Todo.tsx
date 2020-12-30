@@ -1,10 +1,10 @@
 import React, { FC } from "react";
-import TodoItem from "components/TodoItem";
-import EntryForm from "components/EntryForm";
+import TodoItem from "Organisms/TodoItem";
+import EntryForm from "Organisms/EntryForm";
 import { Container, Divider } from "semantic-ui-react";
 import { Item } from "utils/types";
 import useTodo from "hooks/use-todo";
-import Spinner from "./Spinner";
+import Spinner from "../Atoms/Spinner";
 
 const Todo: FC = () => {
   const [items, isLoading, addItem, checkItem, deleteItem] = useTodo();
