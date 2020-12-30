@@ -27,8 +27,6 @@ const Todo: FC = () => {
           />
         ))
       )}
-
-      <div>{items.length} items</div>
     </Container>
   );
 };
