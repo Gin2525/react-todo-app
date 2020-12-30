@@ -1,12 +1,13 @@
 import React, { FormEvent, KeyboardEvent, useState } from "react";
 import { FC } from "react";
-import { Button, Icon } from "semantic-ui-react";
+import { Input } from "semantic-ui-react";
 
 const EntryForm: FC<{ addItem: (text: string) => void }> = ({ addItem }) => {
   const [text, setText] = useState("");
   const [composing, setComposing] = useState(true);
 
-  const reloadText = (event: FormEvent<HTMLInputElement>) => setText(event.currentTarget.value);
+  const reloadText = (event: FormEvent<HTMLInputElement>) =>
+    setText(event.currentTarget.value);
 
   const createTodo = () => {
     if (!text) return;
@@ -22,25 +23,23 @@ const EntryForm: FC<{ addItem: (text: string) => void }> = ({ addItem }) => {
   };
 
   return (
-    <>
-      <input
-        className="todo-input"
-        type="text"
-        value={text}
-        onChange={reloadText}
-        onKeyDown={handleKeyDown}
-        onCompositionStart={(_e) => setComposing(false)}
-        onCompositionEnd={(_e) => setComposing(true)}
-        placeholder="Do you have task?"
-      />
-
-      <Button animated onClick={createTodo} color="blue">
-        <Button.Content visible>Todo</Button.Content>
-        <Button.Content hidden>
-          <Icon name="archive" />
-        </Button.Content>
-      </Button>
-    </>
+    <Input
+      type="text"
+      value={text}
+      onChange={reloadText}
+      onKeyDown={handleKeyDown}
+      onCompositionStart={() => setComposing(false)}
+      onCompositionEnd={() => setComposing(true)}
+      placeholder="Do you have task?"
+      size="huge"
+      action={{
+        onClick: createTodo,
+        color: "blue",
+        labelPosition: "right",
+        icon: "archive",
+        content: "Todo!",
+      }}
+    />
   );
 };
 
